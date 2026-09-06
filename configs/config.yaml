@@ -1,0 +1,31 @@
+data:
+  raw_dir: "data/raw"
+  image_glob: "**/RGB-PanSharpen/*.tif"
+  label_glob: "**/geojson/buildings/*.geojson"
+  tile_id_regex: "(AOI_\\d+_[A-Za-z]+_img\\d+)"
+  manifest_path: "data/manifest.csv"
+  val_split: 0.2
+  split_seed: 42
+
+preprocessing:
+  patch_size: 512
+  mean: [0.485, 0.456, 0.406]
+  std: [0.229, 0.224, 0.225]
+
+model:
+  in_channels: 3
+  out_channels: 1
+  base_channels: 32
+
+training:
+  batch_size: 4
+  num_epochs: 30
+  learning_rate: 0.0001
+  num_workers: 2
+  checkpoint_dir: "checkpoints"
+  best_checkpoint_name: "best_model.pt"
+  log_every_n_steps: 10
+
+inference:
+  mask_threshold: 0.5
+  output_dir: "outputs"
