@@ -4,7 +4,7 @@ import StatusBadge from "../components/StatusBadge";
 import MapPlaceholder from "../components/MapPlaceholder";
 import { IconEye, IconDownload } from "../components/Icons";
 
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = "https://YOUR-BACKEND-NAME.onrender.com";
 
 const PIPELINE = [
   { label: "Input GeoTIFF" },
